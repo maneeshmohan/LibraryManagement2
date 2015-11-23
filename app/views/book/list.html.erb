@@ -1,0 +1,11 @@
+<% if @books.blank?%>
+      <p>There are no books in the stock</p>
+<%else%>
+      <p>These are the current books in the stock.</p>
+      <ul id="books">
+            <%@books.each do |c|%>
+            <li><%=link_to c.title {:action=>'show',:id=>c.id}%></li>
+      <%end%>
+ <%end%>
+</ul>
+<p><%=link_to "Add new book", {:action=>'new'} %></p>
