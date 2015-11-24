@@ -1,5 +1,5 @@
 <h1>Edit book details</h1>
-  <%=form_for @book, :url =>{:action => 'update', :id =>@book} do |f| %>
+  <%=form_for @book, :url =>{:action => 'update', :id =>@book.id} do |f| %>
       <p> Title:<%= f.text_field :title%></p>
       <p> Price: <%=f.text_field :price%> </p>
       <p> Subject:<%=f.collection_select :subject_id,Subject.all,:id,:name%></p>
