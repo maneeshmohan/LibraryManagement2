@@ -35,9 +35,10 @@ class BookController < ApplicationController
   end
   def delete
     Book.find(params[:id]).destroy
-    redirect_to: action=>'list'
+    redirect_to :action=>'list'
   end
   def show_subjects
     @subject=Subject.find(params[:id])
   end
+end
 end
