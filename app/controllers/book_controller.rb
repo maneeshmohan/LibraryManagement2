@@ -6,20 +6,22 @@ class BookController < ApplicationController
     @book=Book.find(params[:id])
   end
   def new
-    @book=Book.new
-    @subjects=Subject.all
+    @book = Book.new
+    @subjects = Subject.all
   end
   def create
+    print book_params
     @book=Book.new(book_params)
-    if@book.save
-      redirect_to:action=>'list'
+
+    if @book.save
+      redirect_to:action => 'list'
     else
       @subjects=Subject.all
       render:action=>'new'
     end
   end
   def book_params
-    params.require(:books).permit(:title,:price,:subject_id,:description)
+    params.require(:book).permit(:title,:price,:subject_id,:description)
   end
   def edit
     @book=Book.find(params[:id])
@@ -27,11 +29,12 @@ class BookController < ApplicationController
   end
   def update
     @book=Book.find(params[:id])
-    if@book.update_attributes(book_params)
+    if @book.update_attributes(book_params)
       redirect_to:action=>'show',:id=>@book
     else
       @subject=Subject.all
       render:action=>'edit'
+    end
   end
   def delete
     Book.find(params[:id]).destroy
@@ -40,5 +43,4 @@ class BookController < ApplicationController
   def show_subjects
     @subject=Subject.find(params[:id])
   end
-end
-end
+ end

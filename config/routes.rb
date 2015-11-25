@@ -1,14 +1,13 @@
-Library::Application.routes.draw do
   Rails.application.routes.draw do
     get '/list', to:'book_#list'
-    get '/new', to: 'book_#new'
-    post '/create', to: 'book_#create'
     get '/show/:id', to: 'book_#show'
     get '/edit/:id', to: 'book_#edit'
+    get '/new', to: 'book_#new'
+    post '/create', to: 'book_#create'
     patch '/update', to: 'book_#update'
     get '/delete/:id', to: 'book_#delete'
     get '/update', to: 'book_#update'
-    get '/show_subjects', to: 'book_#show_subjects'
+    get '/show_subjects/:id', to: 'book_#show_subjects'
  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -64,4 +63,3 @@ Library::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

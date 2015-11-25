@@ -12,4 +12,9 @@
       <%end%>
  <%end%>
 </ul>
+<ul id="subjects">
+    <%Subject.find(:all).each do |c|%>
+    <li><%=link_to c.name, {:controller=>"book_",:action=>'show_subjects',:id=>c.id}%></li>
+    <%end%>
+</ul>
 <p><%=link_to "Add new book", :action=>'new' %></p>
